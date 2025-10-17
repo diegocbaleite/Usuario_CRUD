@@ -57,7 +57,7 @@ Push e abra um Pull Request
 
 👨‍💻 Autor
 
-Diego Leite – [github.com/diegocbaleite]
+Diego Leite – github.com/diegocbaleite
 
 📄 Licença
 
