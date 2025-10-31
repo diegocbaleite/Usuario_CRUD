@@ -133,6 +133,4 @@ public class UsuarioService {
 
         repository.delete(usuario);
     }
-
-
 }

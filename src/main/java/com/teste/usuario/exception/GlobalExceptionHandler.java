@@ -18,9 +18,9 @@ public class GlobalExceptionHandler {
     public ResponseEntity<Map<String, Object>> handleResponseStatusException(ResponseStatusException ex) {
         Map<String, Object> erro = new HashMap<>();
         erro.put("mensagem", ex.getReason());
-        erro.put("status", ex.getStatus().value());
+        erro.put("status", ex.getStatusCode().value());
 
-        return ResponseEntity.status(ex.getStatus()).body(erro);
+        return ResponseEntity.status(ex.getStatusCode()).body(erro);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)

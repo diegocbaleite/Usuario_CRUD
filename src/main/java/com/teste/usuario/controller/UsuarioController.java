@@ -2,6 +2,7 @@ package com.teste.usuario.controller;
 
 import com.teste.usuario.dto.UsuarioDTO;
 import com.teste.usuario.service.UsuarioService;
+import jakarta.validation.Valid;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
-import javax.validation.Valid;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -53,7 +54,7 @@ public class UsuarioController {
             @RequestParam(required = false) String status,
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size
-    ) {
+    ) throws InterruptedException {
         List<UsuarioDTO> usuarios = usuarioService.listar(status, page, size);
         if (usuarios.isEmpty()) {
             return ResponseEntity.noContent().build();
@@ -61,7 +62,7 @@ public class UsuarioController {
         return ResponseEntity.ok(usuarios);
     }
 
-    // UPDATE
+    // UPDATE PUT http://localhost:8080/api/usuarios/{id}
     @PutMapping("/{id}")
     public ResponseEntity<UsuarioDTO> atualizar(
             @PathVariable Long id,
